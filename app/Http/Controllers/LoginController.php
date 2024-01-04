@@ -54,7 +54,7 @@ class LoginController extends Controller
 
         logger()->debug('validation passed!!!');
 
-        $user = User::where('username', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             logger()->debug('invalid credentials!!!');
